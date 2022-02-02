@@ -8,12 +8,7 @@ public class FileManager {
         int totalFiles = 0;
 
         File file = new File(path);
-        if (!file.exists()) {
-            throw new IllegalArgumentException("The given path does not exist.");
-        }
-        if (file.isFile()) {
-            throw new IllegalArgumentException("The given path is a file. A directory is expected.");
-        }
+        checkPath(file);
         File[] subFiles = file.listFiles();
         if (subFiles != null && subFiles.length > 0) {
             for (File subFile : subFiles) {
@@ -28,15 +23,19 @@ public class FileManager {
         return totalFiles;
     }
 
+    private static void checkPath(File file){
+        if (!file.exists()) {
+            throw new IllegalArgumentException("Path does not exist.");
+        }
+        if (file.isFile()) {
+            throw new IllegalArgumentException("Path is a file.Folder is expected.");
+        }
+    }
+
     public static int countDirs(String path) {
         int totalDirs = 0;
         File dir = new File(path);
-        if (!dir.exists()) {
-            throw new IllegalArgumentException("The given path does not exist.");
-        }
-        if (dir.isFile()) {
-            throw new IllegalArgumentException("The given path is a file. A directory is expected.");
-        }
+        checkPath(dir);
         File[] subFiles = dir.listFiles();
         if (subFiles != null && subFiles.length > 0) {
             for (File subFile : subFiles) {
