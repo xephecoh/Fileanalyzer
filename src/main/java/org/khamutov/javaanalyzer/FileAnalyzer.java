@@ -1,5 +1,6 @@
-package org.khamutov;
+package org.khamutov.javaanalyzer;
 
+import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class FileAnalyzer {
     }
 
     String getData(String path) throws IOException {
-        try (FileInputStream fis = new FileInputStream(path)) {
+        try (BufferedInputStream fis = new BufferedInputStream(new FileInputStream(path))) {
             StringBuilder stringBuilder = new StringBuilder();
             byte[] buffer = new byte[10];
             int iterationCounter;
@@ -62,7 +63,7 @@ public class FileAnalyzer {
         return element;
     }
 
-    int getSentences(String path, String word) throws IOException {
+    public int getSentences(String path, String word) throws IOException {
         int totalCounter = 0;
         String[] sentences = getData(path).split("(\\.)");
         for (String sentence : sentences) {
@@ -80,10 +81,7 @@ public class FileAnalyzer {
         String[] words = sentence.split("\\s+");
         for (String element : words) {
             element = resolveThePunctuation(element);
-            if (checkIfMatches(word, element, Pattern.CASE_INSENSITIVE) & tempCounter > 0) {
-                tempCounter++;
-            }
-            if (checkIfMatches(word, element, Pattern.CASE_INSENSITIVE) & tempCounter == 0) {
+            if (checkIfMatches(word, element, Pattern.CASE_INSENSITIVE) ) {
                 tempCounter++;
             }
         }

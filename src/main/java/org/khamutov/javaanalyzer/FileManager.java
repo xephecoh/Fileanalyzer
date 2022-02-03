@@ -1,4 +1,4 @@
-package org.khamutov;
+package org.khamutov.javaanalyzer;
 
 import java.io.File;
 
