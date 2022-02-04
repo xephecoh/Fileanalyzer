@@ -1,4 +1,6 @@
-package org.khamutov.io;
+package org.khamutov.io.messageDAO;
+
+import org.khamutov.io.messageDAO.Message;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

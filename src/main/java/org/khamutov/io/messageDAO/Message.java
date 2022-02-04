@@ -1,4 +1,4 @@
-package org.khamutov.io;
+package org.khamutov.io.messageDAO;
 
 import java.io.Serializable;
 import java.util.Date;

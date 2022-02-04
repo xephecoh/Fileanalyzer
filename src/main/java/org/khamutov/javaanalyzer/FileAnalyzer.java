@@ -45,19 +45,19 @@ public class FileAnalyzer {
         if (element.endsWith(";")) {
             element = element.substring(0, element.length() - 1);
         }
-        if (element.endsWith(",")) {
+        else if (element.endsWith(",")) {
             element = element.substring(0, element.length() - 1);
         }
-        if (element.endsWith(".")) {
+        else if (element.endsWith(".")) {
             element = element.substring(0, element.length() - 1);
         }
-        if (element.endsWith("?")) {
+        else if (element.endsWith("?")) {
             element = element.substring(0, element.length() - 1);
         }
-        if (element.endsWith(":")) {
+        else if (element.endsWith(":")) {
             element = element.substring(0, element.length() - 1);
         }
-        if (element.endsWith("!")) {
+        else if (element.endsWith("!")) {
             element = element.substring(0, element.length() - 1);
         }
         return element;

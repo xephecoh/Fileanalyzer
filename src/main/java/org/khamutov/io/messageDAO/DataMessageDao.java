@@ -1,7 +1,6 @@
-package org.khamutov.io;
+package org.khamutov.io.messageDAO;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.Date;
 
 
@@ -24,8 +23,10 @@ public class DataMessageDao implements MessageDao {
             Date date = new Date(inputStream.readLong());
             int amount = inputStream.readInt();
             int length = inputStream.readInt();
-            String messageText = new String(inputStream.readNBytes(length));
-            return new Message(date, messageText, amount);
+            byte [] buffer = new byte[length];
+            inputStream.read(buffer);
+           // String messageText = new String(inputStream.readNBytes(length));
+            return new Message(date, new String(buffer), amount);
         }
     }
 

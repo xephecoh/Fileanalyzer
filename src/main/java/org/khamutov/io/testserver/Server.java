@@ -1,4 +1,4 @@
-package org.khamutov.io;
+package org.khamutov.io.testserver;
 
 import java.io.*;
 import java.net.ServerSocket;
